@@ -1,0 +1,31 @@
+ <div class="panel panel-primary"> 
+  <div class="panel-heading"> <h2 class="panel-title">{{title}} 
+   <button style="color:black;" (click)="compteur=compteur+1">{{compteur}} ++</button> / (main) app component</h2>
+  </div>
+  
+  <div class="panel-body">
+    <div class="panel-group" id="tp_accordion">
+	
+	  <div class="panel panel-info">
+		<div class="panel-heading"><h4 class="panel-title">
+		    <a data-toggle="collapse" href="#p1" data-parent="#tp_accordion">part 1 (basic.module)</a></h4>
+		</div>
+		<div id="p1" class="panel-collapse collapse"> 
+		             <!-- avec classe bootstrap-css in pour developpement par defaut -->
+		  <div class="panel-body"><basic-my-switch></basic-my-switch></div>
+		</div>
+	  </div>
+	  
+	  <div class="panel panel-info">
+		<div class="panel-heading"><h4 class="panel-title">
+		    <a data-toggle="collapse" href="#p2" data-parent="#tp_accordion">part 2 (with-route.module)</a></h4>
+		</div>
+		<div id="p2" class="panel-collapse collapse"> 
+		  <div class="panel-body">contenue de la partie2</div>
+		</div>
+	  </div>
+	  
+    </div>
+   </div>
+</div>
+	 
