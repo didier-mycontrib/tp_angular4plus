@@ -1,0 +1,8 @@
+<div class="c2">
+<p> prod-list works!</p>
+<ul>
+  <li *ngFor="let prod of products">
+   <a [routerLink]="['details' , prod.num ]" >  {{prod.label}} </a>
+  </li>
+</ul>
+</div>

@@ -1,52 +1,13 @@
- <ul class="nav nav-pills">
-   <li [class.active]="subpart == 'basic-simple'"> 
-     <a href="#" (click)="subpart='basic-simple'">binding</a>
-	</li>
-   <li [class.active]="subpart == 'withChild'">
-     <a href="#" (click)="subpart='withChild'">@Input/@Output</a>
-	</li>
-   <li [class.active]="subpart == 'withForm'">
-     <a href="#" (click)="subpart='withForm'">forms</a>
-	</li>
-	<li [class.active]="subpart == 'withFilter'">
-     <a href="#" (click)="subpart='withFilter'">filter</a>
-	</li>
-	<li [class.active]="subpart == 'withService'">
-     <a href="#" (click)="subpart='withService'">service</a>
-	</li>
-</ul>
-<!-- attention ngSwitch réinitialise une nouvelle instance d'une classe
-     de composant lors de chaque switch : pas de mémorisation d'état (après quitter/retour) -->
-<!--
-<div class="panel panel-info" [ngSwitch]="subpart">
-	<div class="panel-body" *ngSwitchCase="'basic-simple'" >
-		<basic-simple></basic-simple>
-	</div>
-	<div class="panel-body" *ngSwitchCase="'withChild'" >
-		<basic-in-out-life-cycle></basic-in-out-life-cycle>
-	</div>	
-	<div class="panel-body" *ngSwitchDefault >default content of unknown subpart</div>
-</div>	
--->
-<!-- des [style.display]="subpart=='subpartXy'?'block':'none'" sur les parties alternatives 
-   à cacher/montrer peut être une alternative (à état mémorisé) au ngSwitch :  -->
-<div class="panel panel-info" >
-	<div class="panel-body" [style.display]="subpart=='basic-simple'?'block':'none'" >
-		<basic-simple></basic-simple>
-	</div>
-	<div class="panel-body" [style.display]="subpart=='withChild'?'block':'none'" >
-		<basic-in-out-life-cycle></basic-in-out-life-cycle>
-	</div>
-	<div class="panel-body" [style.display]="subpart=='withForm'?'block':'none'" >
-		<basic-with-form></basic-with-form>
-	</div>
-	<div class="panel-body" [style.display]="subpart=='withFilter'?'block':'none'" >
-		<basic-with-filter></basic-with-filter>
-	</div>
-	<div class="panel-body" [style.display]="subpart=='withService'?'block':'none'" >
-		<basic-with-service></basic-with-service>
-	</div>
-</div>	
+ <tabs-group [titles]="['binding' , '@Input/@Output' , 'forms' , 'pipes' , 'service']"
+  (activeTabEvent)="subpart=$event.value">
+  
+<basic-simple [style.display]="subpart=='binding'?'block':'none'"></basic-simple>
+<basic-in-out-life-cycle [style.display]="subpart=='@Input/@Output'?'block':'none'"></basic-in-out-life-cycle>
+<basic-with-form [style.display]="subpart=='forms'?'block':'none'"></basic-with-form>
+<basic-with-filter [style.display]="subpart=='pipes'?'block':'none'"></basic-with-filter>
+<basic-with-service [style.display]="subpart=='service'?'block':'none'"></basic-with-service>
 
+</tabs-group>
+ 
 
 

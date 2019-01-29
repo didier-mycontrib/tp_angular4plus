@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from "./product";
 
 @Component({
   selector: 'basic-with-filter',
@@ -6,6 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./with-filter.component.css']
 })
 export class WithFilterComponent implements OnInit {
+	
+  today : Date = new Date();
+  choosenOrder : string = "+price";
+    
+	
+  products : Product[] = [
+  { num : 1 , label : "stylo" , price : 1.672334 } ,
+  { num : 2 , label : "cahier" , price : 3.2488 } ,
+  { num : 3 , label : "gomme" , price : 2.89677 } ,
+  { num : 4 , label : "cartable" , price : 26.27934 } ,
+  { num : 5 , label : "crayon" , price : 0.97934 } ,
+  ];
 
   constructor() { }
 

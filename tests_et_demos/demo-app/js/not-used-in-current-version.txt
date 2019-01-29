@@ -1,0 +1,11 @@
+jquery n'est pas nécessaire pour angular 2+
+il est possible (avec certaines limitations / éventuels conflits à gérer) d'utiliser jquery en + d'angular
+(par exemple pour certains refelexes bootstraps de bootstrap.min.js)
+Attention bootstrap 3 est compatible jquery 2.x mais pas jquery 3.x .
+
+si besoin d'utiliser jquery
+il faut ajouter 
+
+"scripts": [ "../js/jquery-2.2.4.min.js" , "../js/bootstrap.min.js"],
+
+dans .angular-cli.json 

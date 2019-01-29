@@ -1,3 +1,41 @@
-<p>
-  with-form works!
-</p>
+<!-- NB: dans cet exemple:
+   le style d'alignement bootstrap "form-horizontal" ne fonctionne bien
+   qu'avec des regoupements "form-group" , des label avec form-label et col-sm-3ou4
+   et des input avec form-control imbriqués dans des div en col-sm8ou9
+   4+8 = 12 ou 3+9=12 ou bien 3+6+3=12 si colonne d
+   -------
+   les styles complémentaires "ng-untouched/ng-touched , ng-pristine/ng-valid , 
+       ng-invalid/ng-valid" seront automatiquement ajoutés/gérés par angular 
+  -->
+
+<form #personForm="ngForm"  class="form-horizontal"
+      [hidden]="submitted" (submit)="onSubmit()">
+  <div class="form-group">
+   <label for="name" class="form-label col-sm-3">name:</label>
+   <div class="col-sm-6">
+     <input type="text" class="form-control" id="name" name="name" #spyName placeholder="no empty string "
+	       [(ngModel)]="person.name" #nameFormCtrl="ngModel" required /> 
+     <br/>css class of input/name: {{spyName.className}} <!-- temp display -->
+   </div>
+   <div [hidden]="nameFormCtrl.valid" class="errMsg col-sm-3 alert alert-danger"> name is required</div>
+  </div>
+  <div class="form-group">
+   <label for="age" class="form-label col-sm-3">age:</label>
+   <div class="col-sm-6">
+     <input type="number" class="form-control" id="age" name="age" placeholder="a positive integer"
+	        #spyAge [(ngModel)]="person.age" #ageFormCtrl="ngModel" required /> 
+     <br/>css class of input/age: {{spyName.className}} <!-- temp display -->
+	 </div>
+	 <div [hidden]="ageFormCtrl.valid" class="errMsg col-sm-3 alert alert-danger">positive number required</div>	 
+  </div> 
+  <div class="form-group">
+	<div class="col-sm-offset-3 col-sm-9">
+     <button type="submit" class="btn btn-default"
+           [disabled]="!personForm.form.valid">Submit</button>
+    </div>
+  </div>
+</form>
+<hr/>
+<div [hidden]="!submitted">
+submitted  values : name={{person.name}} , age={{person.age}} . 
+</div>

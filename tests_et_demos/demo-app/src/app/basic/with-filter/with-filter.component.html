@@ -1,3 +1,16 @@
-<p>
-  with-filter works!
-</p>
+<p>raw date: {{today}}</p>
+<p>date with | date : {{today | date}} </p>
+<p>date with | date : "dd/MM/yyyy" : {{today | date : "dd/MM/yyyy"}} </p>
+<p> first product via | json : {{products[0] | json }} </p>
+<hr/>
+<h3> list of product (order by <select [(ngModel)]="choosenOrder">
+								   <option value='+price'>ascending price</option>
+								   <option value='-price'>descending price</option>
+								   <option value='+label'>+label</option>
+								   <option value='-label'>-label</option>
+								</select>) </h3>
+<ul>
+  <li *ngFor="let prod of products | mySortBy : choosenOrder "> 
+  [{{prod.num}}] - {{prod.price | number : ".2-2" }} euros - {{prod.label | uppercase }}</li>
+</ul>
+

@@ -9,7 +9,7 @@ r: number;
 @Component({
   selector: 'basic-simple',
   templateUrl: './simple.component.html',
-  styleUrls: ['./simple.component.css' , '../../../assets/css/bootstrap.css']
+  styleUrls: ['./simple.component.css' ]
 })
 export class SimpleComponent  {
 	

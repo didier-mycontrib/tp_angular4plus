@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
 
-
+// '../' from app ,    'assets/css/bootstrap.css' from src  may be already in global styles (angular-cli.json)
 
 @Component({
   selector: 'app-root',
-  styleUrls: ['./app.component.css','../assets/css/bootstrap.css' ],
+  styleUrls: ['./app.component.css' ],
   templateUrl: 'app.component.html',
    providers: []
 })

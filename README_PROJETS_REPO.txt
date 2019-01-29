@@ -1,11 +1,8 @@
 Dans ce repo "git" didier-mycontrib/tp_angular4+
 ===============================================
 
-boutique = application "ecommerce" (ventes en ligne de style "amazon" , "webdistrib" , ....)
-minibank = appli pour consulter ses comptes bancaires et effectuer des virements
-appli-prime-ng = appli pour tester composants "prime-ng"
+spectacle-app = appli de reservation de spectacles (front-end en relation avec le back-end spring-boot-spectale-ws )
 tests_et_demos = appli avec plein de petits exemples (comportements , expérimentations , ....)
-resources_pour_tp = éléments de configuration (pour copier/coller)
 
 =====
 
