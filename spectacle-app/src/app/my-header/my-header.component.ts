@@ -14,13 +14,18 @@ export class MyHeaderComponent implements OnInit {
   myMenuDefs :MenuDefinition[] = [
     
     { label : "Spectacles" , path : "ngr/spectacle" } , 
-    { label : "Client" , path : "ngr/client" } ,
-    { label : "Reservations" , 
+    { label : "Espace client" , 
+    children : [
+      { label : "login/client" , path : "ngr/client" } ,
+      { divider : true },
+      { label : "reservations" , path : "ngr/reservation" }
+      ]
+    },
+    { label : "Espace Administrateur" , 
       children : [
-        { label : "suivi" , path : "ngr/reservation" } ,
-        { label : "..." , path : "ngr/welcome" },
+        { label : "login/admin" , path : "ngr/login_admin" } ,
         { divider : true },
-        { label : "..." , path : "ngr/welcome" }
+        { label : "admin spectacles" , path : "ngr/admin_spectacles" }
       ]
     }
     ];

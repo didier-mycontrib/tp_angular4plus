@@ -1,15 +1,31 @@
-<div>
+<div class="row">
 
-  category: <select [(ngModel)]="category" >
+  <div class="col-sm-6" >
+
+  category: <select [(ngModel)]="category" 
+       (change)="onRechercherSpectacles()">
        <option *ngFor="let c of categories" [ngValue]="c">{{c.title}}</option>  
   </select> <br/>
-  <input type="button" value="rechercher spectacles" 
-         (click)="onRechercherSpectacles()"/><br/>
-  <hr/>
+   <hr/>
+  spectacles de la catégorie :
   <table border="1">
-     <tr><th>id</th><th>title</th><th>price</th><th>duration</th><th>description</th></tr>
-     <tr *ngFor="let s of spectacles">
-        <td>{{s.id}}</td><td>{{s.title}}</td><td>{{s.price}}</td><td>{{s.duration}}</td><td>{{s.description}}</td>
+     <tr><th>id</th><th>title</th><th>price</th><th>duration</th></tr>
+     <tr *ngFor="let s of spectacles" (click)="onRechercherSessions(s)">
+        <td>{{s.id}}</td><td>{{s.title}}</td><td>{{s.price}}</td><td>{{s.duration}}</td>
      </tr>
   </table>
+
+  </div> <!-- end of first colomn -->
+  <div class="col-sm-6" >
+     <u>spectacle selectionné</u>: <br/>
+     {{spectacle | json}}
+     <hr/>
+     sessions du spectacle : <br/>
+     <table border="1">
+        <tr><th>id</th><th>date</th><th>startTime</th><th>nbRemainingPlaces</th></tr>
+        <tr *ngFor="let se of sessions">
+           <td>{{se.id}}</td><td>{{se.date}}</td><td>{{se.startTime}}</td><td>{{se.nbRemainingPlaces}}</td>
+        </tr>
+     </table>
+  </div> <!-- end of second colomn -->  
 </div>

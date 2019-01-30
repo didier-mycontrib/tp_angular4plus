@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Category } from "src/app/common/data/Category";
 import { Spectacle } from "src/app/common/data/Spectacle";
 import { SpectacleService } from "src/app/common/service/spectacle.service";
+import { Session } from "src/app/common/data/Session";
 
 @Component({
   selector: 'app-spectacle',
@@ -15,6 +16,17 @@ export class SpectacleComponent implements OnInit {
   
   spectacles : Spectacle[] = null; //liste des spectables trouvés
   spectacle : Spectacle =null; //spectacle selectionné (à détailler)
+
+  sessions : Session[] = null; //sessions du spectacle sélectionné
+
+  onRechercherSessions(s:Spectacle){
+    this.spectacle=s;
+    if(this.spectacle==null || this.spectacle.id == null) return;
+    console.log("spectacleId="+this.spectacle.id);
+    this.spectacleService.getListeSessionsOfSpectacle$(this.spectacle.id).subscribe(
+      (sessions)=>{this.sessions=sessions;}
+    );
+  }
 
   onRechercherSpectacles(){
     if(this.category==null || this.category.id == null) return;
