@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'ngr/welcome', component: WelcomeComponent },
   { path: 'ngr/spectacle', component: SpectacleComponent },
   { path: 'ngr/admin', component: AdminSpaceComponent },
-  { path: 'ngr/customer', component: CustomerSpaceComponent },
+  { path: 'ngr/customer/:action', component: CustomerSpaceComponent },
   { path: '', redirectTo: '/ngr/welcome', pathMatch: 'full'}
   ];
 

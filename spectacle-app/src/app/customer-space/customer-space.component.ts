@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-customer-space',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerSpaceComponent implements OnInit {
 
-  constructor() { }
+  message: string = "espace client";
+
+  constructor(route: ActivatedRoute) { 
+    const action: string = route.snapshot.params['action'];
+    if(action != null)
+    {
+      this.message=action;
+    }
+  }
 
   ngOnInit() {
   }

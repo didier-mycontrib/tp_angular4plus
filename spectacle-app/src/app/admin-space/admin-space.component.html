@@ -1,7 +1,7 @@
 <div>
 
-<app-login-admin></app-login-admin>
-
-<app-admin-spectacle></app-admin-spectacle>
+<app-login-admin (authentified)="onAuthentified($event)"></app-login-admin>
+<hr/>
+<app-admin-spectacle [hidden]="!authOk" ></app-admin-spectacle>
 
 </div>

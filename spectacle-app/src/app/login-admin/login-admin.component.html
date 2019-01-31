@@ -1,6 +1,10 @@
 <div>
-username : <input type="text" [(ngModel)]="authRequest.username" /> <br/>
-password : <input type="text" [(ngModel)]="authRequest.password" /> <br/>
-<input type="button" value="login as admin" 
-       (click)="onLoginAsAdmin()" />
+    <div [hidden]="authOk">
+    username : <input type="text" [(ngModel)]="authRequest.username" /> <br/>
+    password : <input type="text" [(ngModel)]="authRequest.password" /> <br/>
+    <input type="button" value="login as admin" 
+        (click)="onLoginAsAdmin()" />
+    <hr />
+    </div>
+{{message}}
 </div>

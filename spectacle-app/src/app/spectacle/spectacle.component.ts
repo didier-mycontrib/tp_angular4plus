@@ -4,6 +4,7 @@ import { Spectacle } from "src/app/common/data/Spectacle";
 import { SpectacleService } from "src/app/common/service/spectacle.service";
 import { Session } from "src/app/common/data/Session";
 import { SharedServiceForUserSession } from "src/app/common/service/shared-service-for-user-session";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-spectacle',
@@ -39,7 +40,15 @@ export class SpectacleComponent implements OnInit {
     );
   }
 
+  onReserver(selectecSpectacleSession: Session){
+    console.log("reservation de :" + JSON.stringify(selectecSpectacleSession));
+    this.sharedServiceForUserSession.selectedSpectacleSessionId=
+      selectecSpectacleSession.id;
+    this.router.navigate(['/ngr/customer', 'new-resa']);
+  }
+
   constructor(private spectacleService : SpectacleService,
+              private router: Router,
               private sharedServiceForUserSession: SharedServiceForUserSession) { }
 
   ngOnInit() {

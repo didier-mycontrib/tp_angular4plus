@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminSpaceComponent implements OnInit {
 
+  authOk : boolean = false;
+
+  onAuthentified(evt){
+    this.authOk = evt.ok;
+  }
+
   constructor() { }
 
   ngOnInit() {
