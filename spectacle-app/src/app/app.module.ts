@@ -15,13 +15,19 @@ import { SpectacleComponent } from './spectacle/spectacle.component';
 import { ClientComponent } from './client/client.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { SpectacleService } from "src/app/common/service/spectacle.service";
-
+import { AdminSpectacleComponent } from './admin-spectacle/admin-spectacle.component';
+import { LoginAdminComponent } from './login-admin/login-admin.component';
+import { SharedServiceForUserSession } from "src/app/common/service/shared-service-for-user-session";
+import { AdminSpectacleService } from "src/app/common/service/admin-spectacle.service";
+import { AdminSpaceComponent } from './admin-space/admin-space.component';
+import { CustomerSpaceComponent } from './customer-space/customer-space.component';
+import { AuthService } from "src/app/common/security-service/auth.service";
 
 const routes: Routes = [
   { path: 'ngr/welcome', component: WelcomeComponent },
   { path: 'ngr/spectacle', component: SpectacleComponent },
-  { path: 'ngr/client', component: ClientComponent },
-  { path: 'ngr/reservation', component: ReservationComponent },
+  { path: 'ngr/admin', component: AdminSpaceComponent },
+  { path: 'ngr/customer', component: CustomerSpaceComponent },
   { path: '', redirectTo: '/ngr/welcome', pathMatch: 'full'}
   ];
 
@@ -33,13 +39,17 @@ const routes: Routes = [
     WelcomeComponent,
     SpectacleComponent,
     ClientComponent,
-    ReservationComponent
+    ReservationComponent,
+    AdminSpectacleComponent,
+    LoginAdminComponent,
+    AdminSpaceComponent,
+    CustomerSpaceComponent
   ],
   imports: [
     BrowserModule , FormsModule, BsUtilModule, NgbModule.forRoot() ,
      RouterModule.forRoot(routes) , HttpClientModule
   ],
-  providers: [SpectacleService],
+  providers: [SpectacleService, AdminSpectacleService, SharedServiceForUserSession, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

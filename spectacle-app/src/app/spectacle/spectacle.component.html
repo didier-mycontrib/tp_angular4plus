@@ -10,7 +10,8 @@
   spectacles de la catégorie :
   <table border="1">
      <tr><th>id</th><th>title</th><th>price</th><th>duration</th></tr>
-     <tr *ngFor="let s of spectacles" (click)="onRechercherSessions(s)">
+     <tr *ngFor="let s of spectacles" (click)="onRechercherSessions(s)"
+          [class.selected]="spectacle==s">
         <td>{{s.id}}</td><td>{{s.title}}</td><td>{{s.price}}</td><td>{{s.duration}}</td>
      </tr>
   </table>
