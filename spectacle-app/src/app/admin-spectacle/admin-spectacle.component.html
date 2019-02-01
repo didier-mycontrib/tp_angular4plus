@@ -1,5 +1,36 @@
-<p>
-  admin-spectacle works!
-</p>
-ajout de categorie(s) , spectacle(s) , session(s)
-...
+<hr/>
+categories existantes:<select [(ngModel)]="category"
+     (change)="onRechercherSpectacles()"  >
+  <option *ngFor="let c of categories" [ngValue]="c">{{c.title}}</option>
+</select> <br/>
+nouvelle categorie: <input [(ngModel)]="titleOfNewCategory" />
+<input type="button" value="ajouter" (click)="onAjoutCategory()" /><br/>
+<hr/>
+spectacles de la catégorie :
+<table border="1">
+  <tr>
+    <th>id</th>
+    <th>title</th>
+    <th>price</th>
+    <th>duration</th>
+    <th>nbPlaces</th>
+    <th>description</th>
+  </tr>
+  <tr *ngFor="let s of spectacles" [class.selected]="spectacle==s"
+    (click)="onSelectionnerSpectacle(s)">
+    <td>{{s.id}}</td>
+    <td>{{s.title}}</td>
+    <td>{{s.price}}</td>
+    <td>{{s.duration}}</td>
+    <td>{{s.nbPlaces}}</td>
+    <td>{{s.description}}</td>
+  </tr>
+</table>
+<hr/>
+nouveau spectacle (pour categorie selectionnée):<br/>
+ title: <input [(ngModel)]="newSpectacle.title" /> <br/>
+ price: <input [(ngModel)]="newSpectacle.price" /> <br />
+ duration: <input [(ngModel)]="newSpectacle.duration" /> <br />
+ description: <input [(ngModel)]="newSpectacle.description" /> <br />
+ nbPlaces: <input [(ngModel)]="newSpectacle.nbPlaces" /> <br />
+<input type="button" value="ajouter" (click)="onAjoutSpectacle()" /><br />

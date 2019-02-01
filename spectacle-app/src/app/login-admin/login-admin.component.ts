@@ -22,6 +22,8 @@ export class LoginAdminComponent implements OnInit {
 
   constructor(private authService : AuthService) { 
     this.authRequest = new AuthRequest();
+    this.authRequest.username ="mycompany/myapp/administrators/admin";
+    this.authRequest.password="admin";
   }
 
   ngOnInit() {
@@ -40,6 +42,7 @@ export class LoginAdminComponent implements OnInit {
         this.message = this.authResponse.message;
         if(authResponse.authOk){
           this.authOk=true;
+          localStorage.setItem('token', authResponse.authToken);
           this.authentified.emit({ok:true,message:"authentified"});
         }
       }

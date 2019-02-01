@@ -22,6 +22,8 @@ import { AdminSpectacleService } from "src/app/common/service/admin-spectacle.se
 import { AdminSpaceComponent } from './admin-space/admin-space.component';
 import { CustomerSpaceComponent } from './customer-space/customer-space.component';
 import { AuthService } from "src/app/common/security-service/auth.service";
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MyAuthInterceptor } from 'src/app/common/security-service/my-auth-interceptor';
 
 const routes: Routes = [
   { path: 'ngr/welcome', component: WelcomeComponent },
@@ -49,7 +51,13 @@ const routes: Routes = [
     BrowserModule , FormsModule, BsUtilModule, NgbModule.forRoot() ,
      RouterModule.forRoot(routes) , HttpClientModule
   ],
-  providers: [SpectacleService, AdminSpectacleService, SharedServiceForUserSession, AuthService],
+  providers: [SpectacleService, AdminSpectacleService, SharedServiceForUserSession, AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MyAuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Spectacle } from "src/app/common/data/Spectacle";
 import { Category } from "src/app/common/data/Category";
 import { Observable , of } from "rxjs";
 import { Session } from "src/app/common/data/Session";
+import { SpectacleAddition } from './../data/Spectacle-addition';
 
 @Injectable({
   providedIn: 'root'
@@ -11,18 +12,31 @@ import { Session } from "src/app/common/data/Session";
 export class SpectacleService {
 
   private _SpectacleBaseUrl = "./spectacle-api/public/spectacle" ; //avec ng serve --proxy-config proxy.conf.json
-  private _CategoryBaseUrl = "./spectacle-api/public/spectacle/allCategories" ; 
+  private _adminSpectacleBaseUrl = "./spectacle-api/spectacle" ; 
+
+  private _headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(private _http : HttpClient) { }
 
   public getListeCategory$():Observable<Category[]>{
     //return of([{id:1,title:"theatre"},{id:2,title:"concert"}]);
-   return this._http.get<Category[]>(this._CategoryBaseUrl);
+    return this._http.get<Category[]>(this._SpectacleBaseUrl +"/allCategories");
 }
 
-  public postSpectacle$(Spectacle : Spectacle):Observable<Spectacle> {
-    let SpectacleUrl : string = this._SpectacleBaseUrl;
-    return this._http.post<Spectacle>(SpectacleUrl ,Spectacle );
+  public postCategory$(category: Category): Observable<Category> {
+    let categoryUrl: string = this._adminSpectacleBaseUrl+"/category";
+    return this._http.post<Spectacle>(categoryUrl, category,
+      { headers: this._headers }
+      );
+  }
+
+  public postSpectacle$(spectacle: Spectacle, idCategory: number): Observable<SpectacleAddition> {
+    let spectacleAddion : SpectacleAddition = new SpectacleAddition();
+    spectacleAddion.spectacle = spectacle;
+    spectacleAddion.categoryId = idCategory;
+    let spectacleUrl: string = this._adminSpectacleBaseUrl;
+    return this._http.post<SpectacleAddition>(spectacleUrl, spectacleAddion,
+      { headers: this._headers } );
     }
 
   public getListeSpectacle$(categoryId:number):Observable<Spectacle[]>{
