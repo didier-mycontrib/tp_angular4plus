@@ -28,3 +28,6 @@ location  ~ ^/devise-app/deviseApi/(.*){
 ====
 dans image docker "nginx" , écraser le contenu de /etc/nginx/conf.d/default.conf
 par une copie avec en plus le paramétrage adéquat  : docker-nginx.conf
+=======
+docker container exec -ti devise-ngapp-container sh
+pour debug
