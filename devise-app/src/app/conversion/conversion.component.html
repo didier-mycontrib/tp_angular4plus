@@ -1,0 +1,14 @@
+<div class="conv">
+<h3> conversion </h3>
+
+montant à convertir :<input [(ngModel)]="montantSource" /> <br/>
+monnaie source :<select [(ngModel)]='source'>
+                        <option *ngFor="let c of currencyCodes">{{c}}</option>
+                      </select> <br/>
+monnaie cible:<select [(ngModel)]='cible'>
+                  <option *ngFor="let c of currencyCodes">{{c}}</option>
+                </select> <br/>
+<input type='button' value='convertir' (click)="onConvertir($event)" /> <br/> 
+
+montant converti : {{montantCible}}
+</div>

@@ -1,4 +1,4 @@
-npm install bootstrap@4.1.1 --save
+npm install bootstrap@4.2.1 --save
 npm install font-awesome@4.7.0 --save
 npm install --save @ng-bootstrap/ng-bootstrap
 =========
@@ -23,3 +23,14 @@ imports: [
 or imports: [
      NgbModule , .... ] in others ....module.ts
 ======
+
+si besoin (pour migrer le projet en cours seulement de angular 6 à 7) :
+
+ng update @angular/cli @angular/core
+
+====
+pour migrer globalement angular-cli :
+
+npm uninstall -g angular-cli
+npm cache clean or npm cache verify (if npm > 5)
+npm install -g @angular/cli@latest

@@ -1,0 +1,11 @@
+Améliorations à prévoir:
+
+1) restructurer app.module.ts avec fichier annexe app-routing.module.ts
+2) restructurer spectacle et admin-spectacle en un seul composant (ayant 2 modes/variantes en interne)
+3) prévoir (au niveau app/globale) un mode de fonctionnement alternatif (sans ws-rest et simu)
+   avec un visuel bien clair (dans footer et/ou header)
+4) prévoir un mécanisme de cache pour les données récupérées (categories , ....)
+5) rename ---> meilleurs noms (plus clairs, ...)
+
+===============
+6) rajouter seulement ensuite de nouvelles fonctionnalités.
