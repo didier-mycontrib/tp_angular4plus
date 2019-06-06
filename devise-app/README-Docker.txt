@@ -13,16 +13,16 @@ docker image build -t xyz/devise-ngapp  .
 
 docker image ls
 
-docker run -p 80:80 -d --name devise-ngapp-container xyz/devise-ngapp
+docker run -p 80:80 -d --link devise-api-container:deviseApiHost --name devise-ngapp-container xyz/devise-ngapp
 
 docker container ls
 
 
 
-===== dans nginx.conf (127.0.0.1 ou  ... , 8080 ou ...)  ==== dans image docker ====
+===== dans nginx.conf (127.0.0.1 ou  deviseApiHost , 8080 ou ...)  ==== dans image docker ====
 
 location  ~ ^/devise-app/deviseApi/(.*){
-            proxy_pass   http://127.0.0.1:8080/deviseApi/$1?$args;
+            proxy_pass   http://deviseApiHost:8080/deviseApi/$1?$args;
         }
 
 ====
