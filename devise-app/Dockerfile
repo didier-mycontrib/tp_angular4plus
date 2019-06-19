@@ -1,5 +1,8 @@
-FROM nginx:1.16
+FROM nginx:1.16.0
 # this new image will be create from parent image = nginx:1.16(stable)
+
+#adding ping and curl command for debug via docker run -it .... /bin/bash
+RUN apt-get update && apt-get install -y iputils-ping && apt-get install -y curl
 
 #copy angular app :
 COPY /dist/devise-app /usr/share/nginx/html/devise-app
