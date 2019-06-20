@@ -23,4 +23,11 @@ export class DeviseComponent implements OnInit {
 
   }
 
+  public onInitDevises(evt:any){
+    this.deviseService.initDevises()
+    .subscribe((devises:Devise[])=> { this.devises = devises;
+                                      console.log("devises="+JSON.stringify(this.devises)); });
+
+  }
+
 }

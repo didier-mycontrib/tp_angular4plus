@@ -1,6 +1,7 @@
 <div class="devises">
     <h3> liste des devises </h3>
-    <input type='button' value='get all devises' (click)="onGetAllDevises($event)" /> <br/> 
+    <input type='button' value='get all devises' (click)="onGetAllDevises($event)" /> 
+    <input type='button' value='(re-)init and get data set' (click)="onInitDevises($event)" /><br/> 
     <table border="1">
       <tr><th>code</th><th>monnaie</th><th>tauxChange (pour 1 euro)</th></tr>
       <tr *ngFor="let d of devises">

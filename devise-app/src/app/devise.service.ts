@@ -27,5 +27,11 @@ export class DeviseService {
     return this.http.get<Devise[]>(deviseUrl );
   }
 
+  public initDevises() : Observable<Devise[]> {
+    let initDeviseUrl  ="deviseApi/rest/public/init-devises";
+    console.log( "initDeviseUrl = " + initDeviseUrl);
+    return this.http.get<Devise[]>(initDeviseUrl );
+  }
+
   constructor(private http : HttpClient) { }
 }
