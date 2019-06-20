@@ -25,7 +25,8 @@ docker container ls
     #syntaxes basees sur regexp
 
     # docker run -p 8282:8282 -d --name devise-api-container --network mynetwork --network-alias=devise.api.host xyz/devise-api
-    # docker run -p 80:80 --name devise-ngapp-container --network mynetwork xyz/devise-ngapp
+    # docker run -p 80:80 -d --network mynetwork --name devise-ngapp-container xyz/devise-ngapp
+
 
     #config pour rediriger les appels WS-REST vers api rest (nodeJs ou SpringBoot ou ...)
     #NB: resolver 127.0.0.11 refer to embedded docker DNS service (used for resolving devise.api.host : backend docker container)
