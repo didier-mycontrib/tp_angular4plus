@@ -1,3 +1,5 @@
-{ "/deviseApi" : { "secure" : "false" ,
-    "target" : "http://localhost:8080" }
+{ "/deviseApi" :
+     { "secure" : "false" ,
+      "target" : "http://localhost:8282"
     }
+}
